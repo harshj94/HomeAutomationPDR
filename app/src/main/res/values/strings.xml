@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AutoRotateTesting</string>
+    <string name="title_activity_navigation_drawer">NavigationDrawer</string>
+</resources>

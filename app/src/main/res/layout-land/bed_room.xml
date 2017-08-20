@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bedroom">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/firstTwoButtons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/button_bg_transparent"
+                    android:drawableLeft="@drawable/sun"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:text="Switch 1"
+                    android:textColor="#FFF" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@+id/button1"
+                    android:background="@drawable/button_bg_transparent"
+                    android:drawableLeft="@drawable/sun"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:text="Switch 2"
+                    android:textColor="#FFF" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/SecondTwoButtons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/firstTwoButtons"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/button_bg_transparent"
+                    android:drawableLeft="@drawable/sun"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:text="Switch 3"
+                    android:textColor="#FFF" />
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@+id/button3"
+                    android:background="@drawable/button_bg_transparent"
+                    android:drawableLeft="@drawable/sun"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:text="Switch 4"
+                    android:textColor="#FFF" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/thirdTwoButtons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/firstTwoButtons"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/button_bg_transparent"
+                    android:drawableLeft="@drawable/sun"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:text="Switch 5"
+                    android:textColor="#FFF" />
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@id/button5"
+                    android:background="@drawable/button_bg_transparent"
+                    android:drawableLeft="@drawable/sun"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:text="Switch 6"
+                    android:textColor="#FFF" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fourthTwoButtons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/firstTwoButtons"
+                android:layout_toRightOf="@id/thirdTwoButtons"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/button_bg_transparent"
+                    android:drawableLeft="@drawable/sun"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:text="Switch 7"
+                    android:textColor="#FFF" />
+
+                <Button
+                    android:id="@+id/button8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@id/button7"
+                    android:background="@drawable/button_bg_transparent"
+                    android:drawableLeft="@drawable/sun"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:text="Switch 8"
+                    android:textColor="#FFF" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutfan2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/fourthTwoButtons"
+                android:layout_below="@id/fourthTwoButtons"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/firstTwoButtons"
+                android:background="@drawable/button_bg_transparent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fan1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:paddingLeft="5dp"
+                    android:text="FAN 2"
+                    android:textColor="#FFF"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <SeekBar
+                    android:id="@+id/seekBar2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_toRightOf="@id/fan1"
+                    android:progressDrawable="@drawable/red_scrubber_progress"
+                    android:thumb="@drawable/red_scrubber_control" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutfan1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/thirdTwoButtons"
+                android:layout_below="@id/thirdTwoButtons"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toLeftOf="@id/layoutfan2"
+                android:background="@drawable/button_bg_transparent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fan2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:paddingLeft="5dp"
+                    android:text="FAN 1"
+                    android:textColor="#FFF"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <SeekBar
+                    android:id="@+id/seekBar1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_toRightOf="@id/fan2"
+                    android:progressDrawable="@drawable/red_scrubber_progress"
+                    android:thumb="@drawable/red_scrubber_control" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutfan3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/thirdTwoButtons"
+                android:layout_below="@id/layoutfan1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toLeftOf="@id/layoutfan2"
+                android:background="@drawable/button_bg_transparent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fan3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:paddingLeft="5dp"
+                    android:text="FAN 3"
+                    android:textColor="#FFF"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <SeekBar
+                    android:id="@+id/seekBar3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_toRightOf="@id/fan3"
+                    android:progressDrawable="@drawable/red_scrubber_progress"
+                    android:thumb="@drawable/red_scrubber_control" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layoutfan2"
+                android:layout_toRightOf="@id/layoutfan3"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_bg_transparent">
+
+                <ImageView
+                    android:id="@+id/colorPicked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/circle" />
+
+                <Button
+                    android:id="@+id/pickColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/colorPicked"
+                    android:background="#00ffffff"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:text="Pick Color"
+                    android:textColor="#FFF" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </HorizontalScrollView>
+</RelativeLayout>
