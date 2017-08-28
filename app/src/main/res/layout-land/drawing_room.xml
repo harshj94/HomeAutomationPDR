@@ -17,9 +17,9 @@
             android:scrollbars="none">
 
             <RelativeLayout
-                android:padding="30dp"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:padding="30dp">
 
                 <RelativeLayout
                     android:id="@+id/firstTwoButtons"
@@ -37,7 +37,7 @@
                         android:drawableLeft="@drawable/sun"
                         android:drawablePadding="10dp"
                         android:padding="10dp"
-                        android:text="TV"
+                        android:text="switch 1"
                         android:textColor="#FFF" />
 
                     <Button
@@ -49,7 +49,7 @@
                         android:drawableLeft="@drawable/sun"
                         android:drawablePadding="10dp"
                         android:padding="10dp"
-                        android:text="WWWWWWWW WWWWWW"
+                        android:text="Switch 2"
                         android:textColor="#FFF" />
                 </RelativeLayout>
 
@@ -173,7 +173,7 @@
                         android:layout_centerVertical="true"
                         android:layout_margin="5dp"
                         android:paddingLeft="5dp"
-                        android:text="FAN 2"
+                        android:text="DIM 1"
                         android:textColor="#FFF"
                         android:textSize="15dp"
                         android:textStyle="bold" />
@@ -181,12 +181,12 @@
                     <SeekBar
                         android:id="@+id/seekBar2"
                         android:layout_width="match_parent"
-                        android:layout_centerInParent="true"
-                        android:paddingTop="10dp"
-                        android:layout_marginRight="15sp"
-                        android:paddingBottom="10dp"
                         android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="15sp"
                         android:layout_toRightOf="@id/fan1"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
                         android:progressDrawable="@drawable/red_scrubber_progress"
                         android:thumb="@drawable/red_scrubber_control" />
                 </RelativeLayout>
@@ -210,7 +210,7 @@
                         android:layout_centerVertical="true"
                         android:layout_margin="5dp"
                         android:paddingLeft="5dp"
-                        android:text="FAN 1"
+                        android:text="FAN  "
                         android:textColor="#FFF"
                         android:textSize="15dp"
                         android:textStyle="bold" />
@@ -219,11 +219,11 @@
                         android:id="@+id/seekBar1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="10dp"
-                        android:layout_marginRight="15sp"
                         android:layout_centerInParent="true"
-                        android:paddingBottom="10dp"
+                        android:layout_marginRight="15sp"
                         android:layout_toRightOf="@id/fan2"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
                         android:progressDrawable="@drawable/red_scrubber_progress"
                         android:thumb="@drawable/red_scrubber_control" />
                 </RelativeLayout>
@@ -247,7 +247,7 @@
                         android:layout_centerVertical="true"
                         android:layout_margin="5dp"
                         android:paddingLeft="5dp"
-                        android:text="FAN 3"
+                        android:text="DIM 2"
                         android:textColor="#FFF"
                         android:textSize="15dp"
                         android:textStyle="bold" />
@@ -256,41 +256,66 @@
                         android:id="@+id/seekBar3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="15sp"
                         android:layout_toRightOf="@id/fan3"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
                         android:progressDrawable="@drawable/red_scrubber_progress"
                         android:thumb="@drawable/red_scrubber_control" />
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_width="160dp"
-                    android:layout_height="60dp"
+                    android:id="@+id/pickcolorandbutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/layoutfan2"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="30dp"
                     android:layout_toRightOf="@id/layoutfan3"
-                    android:background="@drawable/button_bg_transparent">
+                    android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/colorPicked"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="15dp"
-                        android:background="@drawable/circle" />
+                    <RelativeLayout
+                        android:id="@+id/pickcolorbutton"
+                        android:layout_width="160dp"
+                        android:layout_height="60dp"
+                        android:layout_marginRight="30dp"
+
+                        android:background="@drawable/button_bg_transparent">
+
+                        <ImageView
+                            android:id="@+id/colorPicked"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="15dp"
+                            android:background="@drawable/circle" />
+
+                        <Button
+                            android:id="@+id/pickColor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/colorPicked"
+                            android:background="#00ffffff"
+                            android:padding="20dp"
+                            android:text="Pick Color"
+                            android:textColor="#FFF" />
+
+                    </RelativeLayout>
 
                     <Button
-                        android:id="@+id/pickColor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/colorPicked"
-                        android:background="#00ffffff"
-                        android:padding="20dp"
-                        android:text="Pick Color"
+                        android:id="@+id/button9"
+                        android:layout_width="160dp"
+                        android:layout_height="60dp"
+                        android:layout_toRightOf="@id/pickcolorbutton"
+                        android:background="@drawable/button_bg_transparent"
+                        android:drawableLeft="@drawable/sun"
+                        android:drawablePadding="10dp"
+                        android:padding="10dp"
+                        android:text="Switch 9"
                         android:textColor="#FFF" />
 
                 </RelativeLayout>
-
             </RelativeLayout>
         </HorizontalScrollView>
     </ScrollView>

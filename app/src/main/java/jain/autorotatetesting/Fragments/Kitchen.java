@@ -48,7 +48,7 @@ public class Kitchen extends Fragment {
     Drawable drawable;
     int callingButton = 0;
     String colorHex;
-    String ip="http://192.168.1.30:8000/status/";
+    String ip="http://192.168.1.30:5000/status/";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

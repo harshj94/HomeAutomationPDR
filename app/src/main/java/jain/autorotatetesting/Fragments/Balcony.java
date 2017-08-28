@@ -48,7 +48,7 @@ public class Balcony extends Fragment {
     Drawable drawable;
     int callingButton = 0;
     String colorHex;
-    String ip="http://192.168.1.60:8000/status/";
+    String ip="http://192.168.1.60:5000/status/";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
