@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bedroom">
+    android:background="@drawable/balcony">
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -309,10 +309,10 @@
                         android:layout_height="60dp"
                         android:layout_toRightOf="@id/pickcolorbutton"
                         android:background="@drawable/button_bg_transparent"
-                        android:drawableLeft="@drawable/sun"
+                        android:drawableLeft="@drawable/doorwhite"
                         android:drawablePadding="10dp"
                         android:padding="10dp"
-                        android:text="Switch 9"
+                        android:text="Unlock"
                         android:textColor="#FFF" />
 
                 </RelativeLayout>

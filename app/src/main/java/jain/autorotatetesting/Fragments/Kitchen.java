@@ -43,35 +43,36 @@ public class Kitchen extends Fragment {
 
     Button[] button = new Button[10];
     String[] status = new String[9];
-    SeekBar[] seekBars = new SeekBar[4];
+    SeekBar[] seekBars = new SeekBar[3];
     ImageView imageView;
     Drawable drawable;
     int callingButton = 0;
     String colorHex;
-    String ip="http://192.168.1.30:5000/status/";
+    Resources res;
+    String ip = "http://192.168.1.30:8000/status/";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.kitchen, container, false);
 
-        button[1] = (Button) view.findViewById(R.id.button1);
-        button[2] = (Button) view.findViewById(R.id.button2);
-        button[3] = (Button) view.findViewById(R.id.button3);
-        button[4] = (Button) view.findViewById(R.id.button4);
-        button[5] = (Button) view.findViewById(R.id.button5);
-        button[6] = (Button) view.findViewById(R.id.button6);
-        button[7] = (Button) view.findViewById(R.id.button7);
-        button[8] = (Button) view.findViewById(R.id.button8);
-
+        button[0] = (Button) view.findViewById(R.id.button1);
+        button[1] = (Button) view.findViewById(R.id.button2);
+        button[2] = (Button) view.findViewById(R.id.button3);
+        button[3] = (Button) view.findViewById(R.id.button4);
+        button[4] = (Button) view.findViewById(R.id.button5);
+        button[5] = (Button) view.findViewById(R.id.button6);
+        button[6] = (Button) view.findViewById(R.id.button7);
+        button[7] = (Button) view.findViewById(R.id.button8);
+        button[8] = (Button) view.findViewById(R.id.button9);
         button[9] = (Button) view.findViewById(R.id.pickColor);
 
-        seekBars[1] = (SeekBar) view.findViewById(R.id.seekBar1);
-        seekBars[2] = (SeekBar) view.findViewById(R.id.seekBar2);
-        seekBars[3] = (SeekBar) view.findViewById(R.id.seekBar3);
+        seekBars[0] = (SeekBar) view.findViewById(R.id.seekBar1);
+        seekBars[1] = (SeekBar) view.findViewById(R.id.seekBar2);
+        seekBars[2] = (SeekBar) view.findViewById(R.id.seekBar3);
 
         imageView = (ImageView) view.findViewById(R.id.colorPicked);
-        Resources res = getResources();
+        res = getResources();
         drawable = res.getDrawable(R.drawable.circle);
 
         for (int i = 0; i < 9; i++) {
@@ -80,19 +81,33 @@ public class Kitchen extends Fragment {
             }
         }
 
-        new Kitchen.GetStatus().execute(ip+"getstatus/1");
+        new GetStatus().execute(ip + "getstatus/1");
 
+        button[0].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                callingButton = 0;
+                //current state off; turning on
+                if (status[0].equals("0")) {
+                    new AccessURL().execute(ip + "s1/1");
+                }
+                //current state on; turning off
+                else if (status[0].equals("1")) {
+                    new AccessURL().execute(ip + "s1/0");
+                }
+            }
+        });
         button[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 callingButton = 1;
                 //current state off; turning on
                 if (status[1].equals("0")) {
-                    new Kitchen.AccessURL().execute(ip+"s1/1");
+                    new AccessURL().execute(ip + "s2/1");
                 }
                 //current state on; turning off
                 else if (status[1].equals("1")) {
-                    new Kitchen.AccessURL().execute(ip+"s1/0");
+                    new AccessURL().execute(ip + "s2/0");
                 }
             }
         });
@@ -102,11 +117,11 @@ public class Kitchen extends Fragment {
                 callingButton = 2;
                 //current state off; turning on
                 if (status[2].equals("0")) {
-                    new Kitchen.AccessURL().execute(ip+"s2/1");
+                    new AccessURL().execute(ip + "s3/1");
                 }
                 //current state on; turning off
                 else if (status[2].equals("1")) {
-                    new Kitchen.AccessURL().execute(ip+"s2/0");
+                    new AccessURL().execute(ip + "s3/0");
                 }
             }
         });
@@ -116,11 +131,11 @@ public class Kitchen extends Fragment {
                 callingButton = 3;
                 //current state off; turning on
                 if (status[3].equals("0")) {
-                    new Kitchen.AccessURL().execute(ip+"s3/1");
+                    new AccessURL().execute(ip + "s4/1");
                 }
                 //current state on; turning off
                 else if (status[3].equals("1")) {
-                    new Kitchen.AccessURL().execute(ip+"s3/0");
+                    new AccessURL().execute(ip + "s4/0");
                 }
             }
         });
@@ -130,11 +145,11 @@ public class Kitchen extends Fragment {
                 callingButton = 4;
                 //current state off; turning on
                 if (status[4].equals("0")) {
-                    new Kitchen.AccessURL().execute(ip+"s4/1");
+                    new AccessURL().execute(ip + "s5/1");
                 }
                 //current state on; turning off
                 else if (status[4].equals("1")) {
-                    new Kitchen.AccessURL().execute(ip+"s4/0");
+                    new AccessURL().execute(ip + "s5/0");
                 }
             }
         });
@@ -144,11 +159,11 @@ public class Kitchen extends Fragment {
                 callingButton = 5;
                 //current state off; turning on
                 if (status[5].equals("0")) {
-                    new Kitchen.AccessURL().execute(ip+"s5/1");
+                    new AccessURL().execute(ip + "s6/1");
                 }
                 //current state on; turning off
                 else if (status[5].equals("1")) {
-                    new Kitchen.AccessURL().execute(ip+"s5/0");
+                    new AccessURL().execute(ip + "s6/0");
                 }
             }
         });
@@ -158,11 +173,11 @@ public class Kitchen extends Fragment {
                 callingButton = 6;
                 //current state off; turning on
                 if (status[6].equals("0")) {
-                    new Kitchen.AccessURL().execute(ip+"s6/1");
+                    new AccessURL().execute(ip + "s7/1");
                 }
                 //current state on; turning off
                 else if (status[6].equals("1")) {
-                    new Kitchen.AccessURL().execute(ip+"s6/0");
+                    new AccessURL().execute(ip + "s7/0");
                 }
             }
         });
@@ -172,28 +187,30 @@ public class Kitchen extends Fragment {
                 callingButton = 7;
                 //current state off; turning on
                 if (status[7].equals("0")) {
-                    new Kitchen.AccessURL().execute(ip+"s7/1");
+                    new AccessURL().execute(ip + "s8/1");
                 }
                 //current state on; turning off
                 else if (status[7].equals("1")) {
-                    new Kitchen.AccessURL().execute(ip+"s7/0");
+                    new AccessURL().execute(ip + "s8/0");
                 }
             }
         });
+
         button[8].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 callingButton = 8;
                 //current state off; turning on
                 if (status[8].equals("0")) {
-                    new Kitchen.AccessURL().execute(ip+"s8/1");
+                    new AccessURL().execute(ip + "s9/1");
                 }
                 //current state on; turning off
                 else if (status[8].equals("1")) {
-                    new Kitchen.AccessURL().execute(ip+"s8/0");
+                    new AccessURL().execute(ip + "s9/0");
                 }
             }
         });
+
         button[9].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -214,7 +231,7 @@ public class Kitchen extends Fragment {
                             @Override
                             public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
                                 colorHex = Integer.toHexString(selectedColor).substring(2);
-                                new Kitchen.AccessURL().execute(ip+"c1/" + colorHex);
+                                new AccessURL().execute(ip + "c1/" + colorHex);
                             }
                         })
                         .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
@@ -229,6 +246,52 @@ public class Kitchen extends Fragment {
         });
 
         //seekBar1
+        seekBars[0].setOnTouchListener(new SeekBar.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action) {
+                    case MotionEvent.ACTION_DOWN:
+                        // Disallow ScrollView to intercept touch events.
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        // Allow ScrollView to intercept touch events.
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+
+                // Handle SeekBar touch events.
+                v.onTouchEvent(event);
+                return true;
+            }
+        });
+
+        seekBars[0].setMax(5);
+        seekBars[0].setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                new AccessURL().execute(ip + "d1/" + i);
+                if (i > 0) {
+                    seekBars[0].setThumb(res.getDrawable(R.drawable.red_scrubber_control));
+                } else {
+                    seekBars[0].setThumb(res.getDrawable(R.drawable.white_control));
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        //seekBar2
         seekBars[1].setOnTouchListener(new SeekBar.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -255,7 +318,12 @@ public class Kitchen extends Fragment {
         seekBars[1].setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                new Kitchen.AccessURL().execute(ip+"d1/" + i);
+                new AccessURL().execute(ip + "d2/" + i);
+                if (i > 0) {
+                    seekBars[1].setThumb(res.getDrawable(R.drawable.red_scrubber_control));
+                } else {
+                    seekBars[1].setThumb(res.getDrawable(R.drawable.white_control));
+                }
             }
 
             @Override
@@ -269,7 +337,7 @@ public class Kitchen extends Fragment {
             }
         });
 
-        //seekBar2
+        //seekBar3
         seekBars[2].setOnTouchListener(new SeekBar.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -296,48 +364,12 @@ public class Kitchen extends Fragment {
         seekBars[2].setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                new Kitchen.AccessURL().execute(ip+"d2/" + i);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-
-        //seekBar3
-        seekBars[3].setOnTouchListener(new SeekBar.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                int action = event.getAction();
-                switch (action) {
-                    case MotionEvent.ACTION_DOWN:
-                        // Disallow ScrollView to intercept touch events.
-                        v.getParent().requestDisallowInterceptTouchEvent(true);
-                        break;
-
-                    case MotionEvent.ACTION_UP:
-                        // Allow ScrollView to intercept touch events.
-                        v.getParent().requestDisallowInterceptTouchEvent(false);
-                        break;
+                new AccessURL().execute(ip + "d3/" + i);
+                if (i > 0) {
+                    seekBars[2].setThumb(res.getDrawable(R.drawable.red_scrubber_control));
+                } else {
+                    seekBars[2].setThumb(res.getDrawable(R.drawable.white_control));
                 }
-
-                // Handle SeekBar touch events.
-                v.onTouchEvent(event);
-                return true;
-            }
-        });
-
-        seekBars[3].setMax(5);
-        seekBars[3].setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                new Kitchen.AccessURL().execute(ip+"d3/" + i);
             }
 
             @Override
@@ -408,17 +440,25 @@ public class Kitchen extends Fragment {
             super.onPostExecute(serverResponse);
             if (serverResponse != null) {
                 Log.d("URL response", serverResponse);
-                if (callingButton >= 1 && callingButton <= 8) {
+                if (callingButton >= 0 && callingButton <= 8) {
                     if (status[callingButton].equals("0")) {
                         status[callingButton] = "1";
-                        button[callingButton].setCompoundDrawablesWithIntrinsicBounds(R.drawable.sunyellow, 0, 0, 0);
+                        if (callingButton != 8) {
+                            button[callingButton].setCompoundDrawablesWithIntrinsicBounds(R.drawable.sunyellow, 0, 0, 0);
+                        } else {
+                            button[callingButton].setCompoundDrawablesWithIntrinsicBounds(R.drawable.dooryellow, 0, 0, 0);
+                        }
                     } else if (status[callingButton].equals("1")) {
                         status[callingButton] = "0";
-                        button[callingButton].setCompoundDrawablesWithIntrinsicBounds(R.drawable.sun, 0, 0, 0);
+                        if (callingButton != 8) {
+                            button[callingButton].setCompoundDrawablesWithIntrinsicBounds(R.drawable.sun, 0, 0, 0);
+                        } else {
+                            button[callingButton].setCompoundDrawablesWithIntrinsicBounds(R.drawable.doorwhite, 0, 0, 0);
+                        }
                     }
                     callingButton = 0;
                 } else if (callingButton == 9) {
-                    drawable.setColorFilter(Color.parseColor("#"+colorHex), PorterDuff.Mode.SRC_ATOP);
+                    drawable.setColorFilter(Color.parseColor("#" + colorHex), PorterDuff.Mode.SRC_ATOP);
                     imageView.setImageDrawable(drawable);
                 }
             } else {
@@ -488,20 +528,19 @@ public class Kitchen extends Fragment {
                 try {
                     jObject = new JSONObject(serverResponse);
                     JSONArray jArray = jObject.getJSONArray("status");
-                    int length = jArray.length();
-                    for (int i = 0; i < length - 4; i++) {
-                        status[i + 1] = jArray.get(i).toString();
-                        if (status[i + 1].equals("0")) {
-                            button[i + 1].setCompoundDrawablesWithIntrinsicBounds(R.drawable.sun, 0, 0, 0);
-                        } else if (status[i + 1].equals("1")) {
-                            button[i + 1].setCompoundDrawablesWithIntrinsicBounds(R.drawable.sunyellow, 0, 0, 0);
+                    for (int i = 0; i <= 8; i++) {
+                        status[i] = jArray.get(i).toString();
+                        if (status[i].equals("0")) {
+                            button[i].setCompoundDrawablesWithIntrinsicBounds(R.drawable.sun, 0, 0, 0);
+                        } else if (status[i].equals("1")) {
+                            button[i].setCompoundDrawablesWithIntrinsicBounds(R.drawable.sunyellow, 0, 0, 0);
                         }
                     }
-                    for (int i = length - 4; i < length - 1; i++) {
-                        seekBars[i - 7].setProgress(Integer.parseInt(jArray.get(i).toString()));
+                    for (int i = 9; i <= 11; i++) {
+                        seekBars[i - 9].setProgress(Integer.parseInt(jArray.get(i).toString()));
                     }
 
-                    drawable.setColorFilter(Color.parseColor("#"+jArray.get(length - 1).toString()), PorterDuff.Mode.SRC_ATOP);
+                    drawable.setColorFilter(Color.parseColor("#" + jArray.get(12).toString()), PorterDuff.Mode.SRC_ATOP);
                     imageView.setImageDrawable(drawable);
 
                 } catch (JSONException e) {
