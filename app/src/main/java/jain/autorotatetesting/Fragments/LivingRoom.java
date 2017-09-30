@@ -272,6 +272,7 @@ public class LivingRoom extends Fragment {
         seekBars[0].setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                callingButton = 10;
                 new AccessURL().execute(ip + "d1/" + i);
                 if (i > 0) {
                     seekBars[0].setThumb(res.getDrawable(R.drawable.red_scrubber_control));
@@ -318,6 +319,7 @@ public class LivingRoom extends Fragment {
         seekBars[1].setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                callingButton = 11;
                 new AccessURL().execute(ip + "d2/" + i);
                 if (i > 0) {
                     seekBars[1].setThumb(res.getDrawable(R.drawable.red_scrubber_control));
@@ -364,6 +366,7 @@ public class LivingRoom extends Fragment {
         seekBars[2].setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                callingButton = 12;
                 new AccessURL().execute(ip + "d3/" + i);
                 if (i > 0) {
                     seekBars[2].setThumb(res.getDrawable(R.drawable.red_scrubber_control));
@@ -440,6 +443,7 @@ public class LivingRoom extends Fragment {
             super.onPostExecute(serverResponse);
             if (serverResponse != null) {
                 Log.d("URL response", serverResponse);
+                Log.d("Calling button", "Value = " + callingButton);
                 if (callingButton >= 0 && callingButton <= 8) {
                     if (status[callingButton].equals("0")) {
                         status[callingButton] = "1";
@@ -538,6 +542,11 @@ public class LivingRoom extends Fragment {
                     }
                     for (int i = 9; i <= 11; i++) {
                         seekBars[i - 9].setProgress(Integer.parseInt(jArray.get(i).toString()));
+                        if (Integer.parseInt(jArray.get(i).toString()) > 0) {
+                            seekBars[i-9].setThumb(res.getDrawable(R.drawable.red_scrubber_control));
+                        } else {
+                            seekBars[i-9].setThumb(res.getDrawable(R.drawable.white_control));
+                        }
                     }
 
                     drawable.setColorFilter(Color.parseColor("#" + jArray.get(12).toString()), PorterDuff.Mode.SRC_ATOP);
