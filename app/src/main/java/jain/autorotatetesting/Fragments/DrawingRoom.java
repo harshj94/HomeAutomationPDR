@@ -94,7 +94,6 @@ public class DrawingRoom extends Fragment {
                     public void run() {
                         try {
                             new GetStatus().execute(ip + "getstatus/1");
-                            Toast.makeText(getActivity().getApplicationContext(), "Refreshed DrawingRoom", Toast.LENGTH_SHORT).show();
                         } catch (Exception ignored) {
                         }
                     }
@@ -560,6 +559,13 @@ public class DrawingRoom extends Fragment {
                             button[i].setCompoundDrawablesWithIntrinsicBounds(R.drawable.sun, 0, 0, 0);
                         } else if (status[i].equals("1")) {
                             button[i].setCompoundDrawablesWithIntrinsicBounds(R.drawable.sunyellow, 0, 0, 0);
+                        }
+                        if (i == 8) {
+                            if (status[8].equals("0")) {
+                                button[8].setCompoundDrawablesWithIntrinsicBounds(R.drawable.doorwhite, 0, 0, 0);
+                            } else if (status[8].equals("1")) {
+                                button[8].setCompoundDrawablesWithIntrinsicBounds(R.drawable.dooryellow, 0, 0, 0);
+                            }
                         }
                     }
                     for (int i = 9; i <= 11; i++) {
