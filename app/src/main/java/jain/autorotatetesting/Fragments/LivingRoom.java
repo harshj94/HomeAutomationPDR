@@ -7,6 +7,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,6 +32,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import jain.autorotatetesting.R;
 
@@ -81,7 +84,23 @@ public class LivingRoom extends Fragment {
             }
         }
 
-        new GetStatus().execute(ip + "getstatus/1");
+        final Handler handler = new Handler();
+        Timer timer = new Timer();
+        TimerTask doAsynchronousTask = new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    public void run() {
+                        try {
+                            new GetStatus().execute(ip + "getstatus/1");
+                            Toast.makeText(getActivity().getApplicationContext(), "Refreshed LivingRoom", Toast.LENGTH_SHORT).show();
+                        } catch (Exception ignored) {
+                        }
+                    }
+                });
+            }
+        };
+        timer.schedule(doAsynchronousTask, 0, 5000);
 
         button[0].setOnClickListener(new View.OnClickListener() {
             @Override
