@@ -49,8 +49,8 @@ public class DrawingRoom extends Fragment {
     int callingButton = 0;
     String colorHex;
     Resources res;
-    //String ip = "http://192.168.1.20:8000/status/";
-    String ip = "http://192.168.1.105:8080/RESTfulExample/drawingroom/";
+    String ip = "http://192.168.1.20:8000/status/";
+    //String ip = "http://192.168.1.105:8080/RESTfulExample/drawingroom/";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -222,10 +222,12 @@ public class DrawingRoom extends Fragment {
                         .setTitle("Choose color")
                         .lightnessSliderOnly()
                         .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
-                        .density(12)
+                        .density(10)
                         .setOnColorSelectedListener(new OnColorSelectedListener() {
                             @Override
                             public void onColorSelected(int selectedColor) {
+                                colorHex = Integer.toHexString(selectedColor).substring(2);
+                                new AccessURL().execute(ip + "c1/" + colorHex);
                             }
                         })
                         .setPositiveButton("ok", new ColorPickerClickListener() {
@@ -544,9 +546,9 @@ public class DrawingRoom extends Fragment {
                     for (int i = 9; i <= 11; i++) {
                         seekBars[i - 9].setProgress(Integer.parseInt(jArray.get(i).toString()));
                         if (Integer.parseInt(jArray.get(i).toString()) > 0) {
-                            seekBars[i-9].setThumb(res.getDrawable(R.drawable.red_scrubber_control));
+                            seekBars[i - 9].setThumb(res.getDrawable(R.drawable.red_scrubber_control));
                         } else {
-                            seekBars[i-9].setThumb(res.getDrawable(R.drawable.white_control));
+                            seekBars[i - 9].setThumb(res.getDrawable(R.drawable.white_control));
                         }
                     }
 

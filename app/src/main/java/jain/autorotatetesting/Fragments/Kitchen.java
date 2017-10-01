@@ -221,10 +221,12 @@ public class Kitchen extends Fragment {
                         .setTitle("Choose color")
                         .lightnessSliderOnly()
                         .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
-                        .density(12)
+                        .density(10)
                         .setOnColorSelectedListener(new OnColorSelectedListener() {
                             @Override
                             public void onColorSelected(int selectedColor) {
+                                colorHex = Integer.toHexString(selectedColor).substring(2);
+                                new AccessURL().execute(ip + "c1/" + colorHex);
                             }
                         })
                         .setPositiveButton("ok", new ColorPickerClickListener() {
@@ -543,9 +545,9 @@ public class Kitchen extends Fragment {
                     for (int i = 9; i <= 11; i++) {
                         seekBars[i - 9].setProgress(Integer.parseInt(jArray.get(i).toString()));
                         if (Integer.parseInt(jArray.get(i).toString()) > 0) {
-                            seekBars[i-9].setThumb(res.getDrawable(R.drawable.red_scrubber_control));
+                            seekBars[i - 9].setThumb(res.getDrawable(R.drawable.red_scrubber_control));
                         } else {
-                            seekBars[i-9].setThumb(res.getDrawable(R.drawable.white_control));
+                            seekBars[i - 9].setThumb(res.getDrawable(R.drawable.white_control));
                         }
                     }
 
